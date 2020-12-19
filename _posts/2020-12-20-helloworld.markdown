@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "helloworld!"
-categories: reverse
+categories: init
 ---
 # hello world
 
