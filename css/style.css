@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
 body {
   background-color: #eee;
   color: #000;
@@ -22,7 +24,7 @@ hr {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Cutive Mono';
+  font-family: 'Cutive Mono', 'Nanum Pen Script';
 }
 
 .container .buttons {
