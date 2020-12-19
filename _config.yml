@@ -31,7 +31,7 @@ github_username:  f10w3r-dance
 
 # Build settings
 #theme: minima
-remote_theme: https://github.com/clarkhacks/Minimal-Text
+remote_theme: clarkhacks/Minimal-Text
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
