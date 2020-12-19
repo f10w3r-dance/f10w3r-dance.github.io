@@ -1,5 +1,5 @@
-@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 body {
   background-color: #eee;
   color: #000;
@@ -24,7 +24,7 @@ hr {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Cutive Mono', 'Nanum Pen Script';
+  font-family: 'Ubuntu Mono', monospace, 'Noto Sans KR', sans-serif;
 }
 
 .container .buttons {
