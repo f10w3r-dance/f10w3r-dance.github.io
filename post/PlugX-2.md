@@ -36,3 +36,5 @@ tags: malware apt41 plugx
 2. license.rtf 파일은 암호화 혹은 인코딩 되어있지 않았을것이다.
 
 따라서 재빨리 `license.rtf` 파일을 분석 해보겠습니다.
+
+제일 먼저 `license.rtf`를 IDA를 통해 확인해보면
