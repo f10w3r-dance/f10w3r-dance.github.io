@@ -10,6 +10,7 @@ Best Of The Best. 7th vulnerability
 
 Kookmin Univ. Infomation Security Crypto Mathematical
 
+저는 __분석가__ 혹은 __해커__ 가 아닙니다. 무려 **파워블로거** 입니다 :). 
 # reverse engineering
 
 ## 🇨🇳APT41 malware analysis
