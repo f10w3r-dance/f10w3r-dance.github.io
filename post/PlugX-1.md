@@ -1,8 +1,10 @@
 ---
 layout: post
+date: 2020-12-21
+title: "2020년 11월 PlugX 분석 이야기 1편"
+author: "f10w3r"
+tags: malware apt41
 ---
-
-# 2020년 11월 PlugX 분석 이야기 1편
 
 
 안녕하세요 :) 블로그를 만들고 첫 포스팅입니다!
