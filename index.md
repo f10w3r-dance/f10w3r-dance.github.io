@@ -10,7 +10,7 @@ Best Of The Best. 7th vulnerability
 
 Kookmin Univ. Infomation Security Crypto Mathematical
 
-저는 __분석가__ 혹은 __해커__ 가 절대 아닙니다. 무려 **파워블로거** 이니 가볍게 화장실에서 봐주세요.. :). 
+대단한 기술적인 내용은 없습니다 가볍게 화장실에서 봐주세요.. :) 
 
 # reverse engineering
 
