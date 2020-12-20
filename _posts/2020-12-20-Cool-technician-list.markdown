@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "우리형 목록"
+title:  "Cool technician list"
 date:   2020-12-20 00:08:08 +0900
 categories: reverse
 ---

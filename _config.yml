@@ -1,9 +1,13 @@
 ---
 title: f10w3r dance
 baseurl: "https://blog.f10w3r.dance"
-desc: Security Researcher
-about: Hello world :)
-image: https://www.google.com/url?sa=i&url=https%3A%2F%2Fpnghut.com%2Fpng%2FbCt8q2CUhQ%2Flinux-kernel-tux-logo-distribution-transparent-png&psig=AOvVaw3oZblaBVOK9vo389SEcobL&ust=1608481681651000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCfp6672u0CFQAAAAAdAAAAABAJ
+desc: '"Learning never exhausts the mind." - Leonardo da Vinci'
+about0: "e-mail: f10w3r@kakao.com"
+about1: "Enki. Security Analysis Researcher"
+about2: "Best Of The Best. 7th vulnerability"
+about3: "Kookmin Univ. Infomation Security Crypto Mathematical"
+
+image: https://github.com/f10w3r-dance/f10w3r-dance.github.io/blob/main/png/klipartz.com.png?raw=true
 excerpt_separator: "<!-- more -->"
 markdown: kramdown
 gems:
