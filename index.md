@@ -2,10 +2,16 @@
 layout: default
 ---
 
-# Header 1
+# About
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+Enki. Security Analysis Researcher
 
-## malware
+Best Of The Best. 7th vulnerability
 
-[2020년 11월 PlugX](./post/PlugX-1.md)
+Kookmin Univ. Infomation Security Crypto Mathematical
+
+## malware analyis
+
+### APT41 -[🇨🇳]
+
+[2020년 11월 PlugX 분석 1편](./post/PlugX-1.md)
