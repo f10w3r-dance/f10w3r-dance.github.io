@@ -1,22 +1,5 @@
----
-title: f10w3r dance
-baseurl: "https://blog.f10w3r.dance"
-desc: '"Learning never exhausts the mind." - Leonardo da Vinci'
-about0: "e-mail: f10w3r@kakao.com"
-about1: "Enki. Security Analysis Researcher"
-about2: "Best Of The Best. 7th vulnerability"
-about3: "Kookmin Univ. Infomation Security Crypto Mathematical"
-
-image: https://github.com/f10w3r-dance/f10w3r-dance.github.io/blob/main/png/klipartz.com.png?raw=true
-excerpt_separator: "<!-- more -->"
-markdown: kramdown
-gems:
-- jekyll-paginate
-exclude:
-  - .jekyll-metadata
-  - README.md
-  - CNAME
-paginate: 5
-paginate_path: "/:num/"
-highlighter: rouge
-permalink: pretty
+title: Hacker theme
+description: Hacker is a theme for GitHub Pages.
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-hacker

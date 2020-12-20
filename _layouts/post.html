@@ -1,18 +1,14 @@
 ---
 layout: default
 ---
-{% assign post = page %}
-<main class="container">
-    <div class="row">
-        <div class="col-2">
-            <a href="{{ site.baseurl }}/">[ Home ]</a>
-            <article>
-                <h1>{{ post.title }}</h1>
-                <small>{% include post_date.html %}</small>
-                <p>{{ content }}</p>
-            </article>
-            {% include buttons.html %}
-        </div>
-        {% include post_sidebar.html %}
-    </div>
-</main>
+
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+<h1>{{ page.title }}</h1>
+
+<p class="view">by {{ page.author | default: site.author }}</p>
+
+{{content}}
+
+{% if page.tags %}
+  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+{% endif %}
