@@ -68,7 +68,7 @@ tags: malware apt41 plugx
 
 ;ㄱ; 샘플에서 `license.rtf` 라는 파일을 읽어서 쉘코드로 호출하는 구조를 가지고 있네요.. 다시 탄광으로 가서 `license.rtf` 라는 파일을 구해야 할거같습니다.. 
 
-![pic10](pic/7D81BF1E-D100-4F99-91DD-F8C9236386CF.png?raw=true)
+![pic10](pic/ida_screen.png?raw=true)
 
 
 하지만 여기서 포기할 남자가 아닙니다 저는  후후후… KISA 형님들이 작성해주신 보고서 내에는 친.절 하게도 `license.rtf` 파일의 해시를 공개 해주셨습니다. 
