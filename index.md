@@ -20,5 +20,5 @@ Kookmin Univ. Infomation Security Crypto Mathematical
 
 ### 2020년 11월에 공개된 업데이트된 PlugX 분석 이야기
 
-- [2020년 11월 PlugX 분석 1편](./post/PlugX-1.md) - 2020년 12월 21일
-
+- [2020년 11월 PlugX 분석 1편(샘플 확보)](./post/PlugX-1.md) - 2020년 12월 21일
+- [2020년 11월 PlugX 분석 이야기 2편(Stage1 분석) - 작성중](./post/PlugX-2.md) - 2020년 12월 21일
