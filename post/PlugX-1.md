@@ -19,7 +19,7 @@ tags: malware apt41 plugx
 
  **디..디버거** 그게 뭔데!
 
-![pic0](pic/디버거가뭔데.png?raw=true)
+![pic0](pic/디버거가뭔데.png?raw=true)
 
 아무튼 다시 본론으로  돌아가 예전에 많이 이슈가 되었던 *오늘의 주인공은* 무려 *PlugX* 입니다!!
 
