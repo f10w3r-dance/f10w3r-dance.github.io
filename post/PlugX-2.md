@@ -70,7 +70,7 @@ call    near ptr dword_1283C+4BFh
 
 `sub_14211` 함수를 보기전 `sub_14211` 함수 호출 직후 잠시 잠시 스택 상황을 먼저 그려보면 아래와 같을겁니다.
 
-|스택(아래가 높은 주소|
+|스택(아래가 높은 주소)|
 |------|
 |12D05h(call 다음 ins)|
 |150Ch(push로 넣은 값)|
@@ -99,7 +99,115 @@ seg000:00014216 sub_14211       endp ; sp-analysis failed
 
 이후 `GetProcAddress`함수를 통해 악성코드 내부에서 사용할 함수의 맵핑된 주소를 가져옵니다. 
 
-이 자식, 생각보다 착한 놈이였습니다. 가져오는 함수를 해시화 시키지 않다니.. 하마터면 스크립트 코딩 해야하는줄 알고 긴장했습니다..
+이 자식, 생각보다 착한 놈이였습니다. 가져오는 함수를 해시화 시키지 않다니.. 하마터면 스크립트를 짜야하는줄 알고 긴장했습니다..
+
+### 16바이트 데이터 복호화
 
 ![pic11](./pic/스크린샷%202020-12-20%20오후%2011.54.03.png)
 
+다음 행위를 보니... 맨 처음에 넣어준 인자를 통해서 뭔가 가져와 16byte 만큼 복호화를 하는거 같네요 뭔가 장난질을 하는군요! 잠시 착한놈이라고 생각한 제가 바보였습니다.. 하아..🤦🏻‍♂️
+
+![pic12](./pic/스크린샷%202020-12-21%20오전%2012.00.57.png)
+
+### 큰 데이터 복호화
+
+일단 복호화 코드를 제작하기 전에 전체 기능부터 크게 둘러 보고 제작하겠습니다.
+
+위에서 복호화된 16byte값을 알아 내기 위해 다음 복호화 코드를 보니 16byte짜리 구조체인것을 알 수 있었습니다. 
+
+```c++
+  // 데이터 복호화 2번째 (위에 캡처코드 아래있는 코드입니다.)
+  size = dec_16buf_size + 16;
+  dec_buf = VirtualAlloc(0, dec_16buf_size + 16, 4096, 4);
+  if ( !dec_buf )
+    return (int **)&loc_B;
+  v22 = keyinit;
+  v23 = keyinit;
+  key3 = keyinit;
+  key4 = keyinit;
+  if ( size > 0 )
+  {
+    v24 = (_BYTE *)dec_buf;
+    key2_tmp = (int)_0Ah - dec_buf;
+    do
+    {
+      v22 = v22 + (v22 >> 3) - 0x11111111;
+      v23 = v23 + (v23 >> 5) - 0x22222222;
+      key3 += 0x33333333 - (key3 << 7);
+      key4 += 0x44444444 - (key4 << 9);
+      *v24 = v24[key2_tmp] ^ (key4 + key3 + v23 + v22);
+      ++v24;
+      --size;
+    }
+    while ( size );
+  }
+```
+
+즉 16바이트 만큼 복호화된 데이터는 아래와 같은 구조체를 가집니다.
+
+```c++
+  char keyinit[4]; // [esp+8h] [ebp-100h] BYREF
+  int unkown_compare_pattern; // [esp+Ch] [ebp-FCh]
+  int unkown2_compare_pattern; // [esp+10h] [ebp-F8h]
+  int dec_16buf_size; // [esp+14h] [ebp-F4h]
+```
+
+이후 복호화된 큰 데이터를 `RtlDecompressBuffer` 압축 해제를 해줍니다. 아래 코드(제대로 복호화 되었는지 PE구조 확인)를 볼 때 복호화된 큰 데이터는 추가 악성코드인것 같습니다. 
+
+![pic13](./pic/스크린샷%202020-12-21%20오전%2012.31.58.png)
+
+복호화 행위 이후에는 밑장 깔기로 넣은 인자와 함께 메모리에 로드된 후 실행 됩니다.
+
+### 복호화 코드
+
+복호화 코드 제작하면서 데이터 날려먹으면 복원이 어렵습니다.. 
+
+IDA 7.5 버전에서는 `Ctrl-Z` 기능이 가능한데, 지금 깔려있는 버전이 7.2 버전이라 귀찮은 관계로 `C4164EFA57204AD32AEC2B0F1A12BB3A` 해시에서 `Segment`를 생성해서 작업 했습니다.
+
+```python
+from idaapi import *
+from idautils import *
+from idc import *
+from struct import unpack, pack
+import lznt1
+
+def read_shellcode(base):
+    with open("license.rtf", "rb") as p:
+        data = p.read()
+    size = len(data)
+    add_segm(0, base, base + size, "CODE", "CODE")
+    patch_bytes(base, data)
+
+def decrypt(base, size):
+    tmpkey = get_dword(base)
+    key1 = key2 = key3 = key4 = tmpkey
+    ea = base
+    data = bytearray(get_bytes(ea, size))
+    for i in range(size):
+        key1 = key1 + (key1 >> 3) - 0x11111111
+        key1 &= 0xffffffff
+        key2 = key2 + (key2 >> 5) - 0x22222222
+        key2 &= 0xffffffff
+        key3 += 0x33333333 - (key3 << 7)
+        key3 &= 0xffffffff
+        key4 += 0x44444444 - (key4 << 9)
+        key4 &= 0xffffffff
+        data[i] = (data[i] ^ (key1 + key2 + key3 + key4))&0xff
+    return bytes(data)
+    
+if __name__ == "__main__":
+    base = 0x41410000
+    read_shellcode(base)
+    struct = decrypt(base+0xa, 16)
+    size = unpack("<L", struct[12:16])[0] + 16
+    
+    data = bytes(decrypt(base+0xa, size)[16:])
+    decompressed = lznt1.decompress(data)
+    
+    stage2_base = 0x42420000
+    add_segm(0, stage2_base, stage2_base + len(decompressed), "CODE", "CODE")
+    patch_bytes(stage2_base, decompressed)
+    with open("dump.bin", "wb") as p:
+        p.write(decompressed)
+    print("base addr: 0x%x, size: %d, newbase: 0x%x"%(base, size,stage2_base))
+```
