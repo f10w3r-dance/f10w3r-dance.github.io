@@ -162,7 +162,7 @@ seg000:00014216 sub_14211       endp ; sp-analysis failed
 
 복호화 코드 제작하면서 데이터 날려먹으면 복원이 어렵습니다.. 
 
-IDA 7.5 버전에서는 `Ctrl-Z` 기능이 가능한데, 지금 깔려있는 버전이 7.2 버전이라 귀찮은 관계로 `C4164EFA57204AD32AEC2B0F1A12BB3A` 해시에서 `Segment`를 생성해서 작업 했습니다.
+IDA 7.5 버전에서는 `Ctrl-Z` 기능이 가능한데, 지금 깔려있는 버전이 7.2 버전이라 귀찮은 관계로 `C4164EFA57204AD32AEC2B0F1A12BB3A` 해시에서 `Segment`를 생성해 작업 했습니다.
 
 ```python
 from idaapi import *
@@ -211,3 +211,7 @@ if __name__ == "__main__":
         p.write(decompressed)
     print("base addr: 0x%x, size: %d, newbase: 0x%x"%(base, size,stage2_base))
 ```
+
+복호화 코드를 통해 다음 stage로 가는 디지털 문이 열렸습니다.
+
+![pic15](./pic/싫어.jpg)
