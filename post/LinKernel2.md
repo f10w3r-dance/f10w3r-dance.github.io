@@ -16,7 +16,6 @@ tags: linux kernel exploit pwn
 
 하지만, `prepare_kernel_cred`함수에서 `new->usage`를 1로 설정했기 때문에 스무스 하게 통과합니다. 
 
-추가로 설명하자면 `BUG_ON` 매크로는 인자가 참이라면, 예외처리를 진행합니다.
 
 ```c
 int commit_creds(struct cred *new)
