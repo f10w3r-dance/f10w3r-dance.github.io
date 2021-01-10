@@ -8,7 +8,7 @@ tags: linux kernel exploit pwn
 
 ### commit_creds 분석
 
-`commit_creds` 함수의 소스코드는 [여기서](https://elixir.bootlin.com/linux/v4.18/source/kernel/cred.c#L423) 확인 하실수 있습니다. 
+분석을 시작하기전 `commit_creds` 함수의 소스코드는 [여기서](https://elixir.bootlin.com/linux/v4.18/source/kernel/cred.c#L423) 확인 하실수 있습니다. 
 
 제일 먼저 commit_creds 함수에서는 현재 프로세스가 사용중인 자격 증명과 curren가 가지고 있는 자격 증명이 같은지 확인합니다. 
 
