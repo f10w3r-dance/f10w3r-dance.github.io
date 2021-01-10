@@ -10,7 +10,13 @@ tags: linux kernel exploit pwn
 
 `commit_creds` 함수의 소스코드는 [여기서](https://elixir.bootlin.com/linux/v4.18/source/kernel/cred.c#L423) 확인 하실수 있습니다. 
 
+제일 먼저 commit_creds 함수에서는 현재 프로세스가 사용중인 자격 증명과 curren가 가지고 있는 자격 증명이 같은지 확인합니다. 
 
+이어서 `new`의 `usage` 변수가 1이하 인지 검사합니다.
+
+하지만, `prepare_kernel_cred`함수에서 `new->usage`를 1로 설정했기 때문에 스무스 하게 통과합니다. 
+
+추가로 설명하자면, `BUG_ON` 매크로는 인자가 참이라면, 예외처리를 진행합니다.
 
 ```c
 int commit_creds(struct cred *new)
