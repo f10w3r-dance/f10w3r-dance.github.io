@@ -28,7 +28,7 @@ Kookmin Univ. Infomation Security Crypto Mathematical
 - [2020년 11월 PlugX 분석 이야기 2편(Stage1 분석)](./post/PlugX-2.md) - 2020년 12월 21일
 - 2020년 11월 PlugX 분석 이야기 3편(최종 페이로드 분석) - 제작예정
 
-# System Hacking
+# pwnable
 
 시스템 해킹에 대해 공부한 삽질 일기 입니다!
 
