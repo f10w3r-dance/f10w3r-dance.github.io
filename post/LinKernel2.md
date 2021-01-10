@@ -18,7 +18,22 @@ tags: linux kernel exploit pwn
 
 추가로 설명하자면 `BUG_ON` 매크로는 인자가 참이라면 예외처리를 진행합니다.
 
+```c
+int commit_creds(struct cred *new)
+{
+	struct task_struct *task = current;
+	const struct cred *old = task->real_cred;
 
+	BUG_ON(task->cred != old);
+#ifdef CONFIG_DEBUG_CREDENTIALS
+	BUG_ON(read_cred_subscribers(old) < 2);
+	validate_creds(old);
+	validate_creds(new);
+#endif
+    BUG_ON(atomic_read(&new->usage) < 1);
+....
+
+```
 
 그리고, new의 자격 증명 정보를 가져와 기존에 설정된 `old`와 각 `uid, gid`가 동일한지 검사한다. 그리고 다른 부분(`fs[u/g]id`, `e[u/g]id`의 uid, qid)이 있다면, 데이터를 갱신한다.
 
