@@ -34,6 +34,8 @@ Kookmin Univ. Infomation Security Crypto Mathematical
 
 ## 🐧 Linux
 
-### Linux Kernel Exploit
+리눅스 유저 어플리케이션 및 커널에 대한 삽질기를 작성하였습니다!
+
+### Linux Kernel Exploit 삽질 일기
 
 - [2020년 1월 리눅스 커널 익스플로잇 시작하기전 prepare_kernel_cred 공부](./post/LinKernel1.md) - 2020년 1월 10일
