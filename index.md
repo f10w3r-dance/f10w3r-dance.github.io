@@ -14,7 +14,9 @@ Kookmin Univ. Infomation Security Crypto Mathematical
 
 # reverse engineering
 
-## 🇨🇳APT41 malware analysis
+리버싱에 대한 삽질 일기 입니다! 다양한 악성코드와 리버싱에 대해 공부한 내용을 정리했습니다!
+
+## 🇨🇳 APT41 malware analysis
 
 중국 정부의 지원을 받는 그룹으로 추정되며, PlugX, Poison Ivy등 수 많은 작전을 수행한 이력이 있는 그룹이다. 
 
@@ -26,9 +28,11 @@ Kookmin Univ. Infomation Security Crypto Mathematical
 - [2020년 11월 PlugX 분석 이야기 2편(Stage1 분석)](./post/PlugX-2.md) - 2020년 12월 21일
 - 2020년 11월 PlugX 분석 이야기 3편(최종 페이로드 분석) - 제작예정
 
-# 💻System Hacking
+# System Hacking
 
-## Linux
+시스템 해킹에 대해 공부한 삽질 일기 입니다!
+
+## 🐧 Linux
 
 ### Linux Kernel Exploit
 
